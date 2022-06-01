@@ -1,5 +1,6 @@
 package com.example.jogoscopa2022
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,6 +40,20 @@ class JogosAdapter: RecyclerView.Adapter<JogosAdapter.JogosViewHolder>() {
                 itemView.findViewById<ImageView>(R.id.image_time_2).setImageResource(
                     it
                 )
+            }
+
+            // mudando a cor dos textos de acordo com o resultado
+            when {
+                jogo.golsTime1 > jogo.golsTime2 -> {
+                    itemView.findViewById<TextView>(R.id.txt_gols_1).setTextColor(Color.rgb(0,240,0))
+                }
+                jogo.golsTime1 == jogo.golsTime2 -> {
+                    itemView.findViewById<TextView>(R.id.txt_gols_1).setTextColor(Color.rgb(240,0,0))
+                    itemView.findViewById<TextView>(R.id.txt_gols_2).setTextColor(Color.rgb(240,0,0))
+                }
+                else -> {
+                    itemView.findViewById<TextView>(R.id.txt_gols_2).setTextColor(Color.rgb(0,240,0))
+                }
             }
         }
     }
