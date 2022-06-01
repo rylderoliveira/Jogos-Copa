@@ -3,6 +3,7 @@ package com.example.jogoscopa2022
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.*
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
@@ -53,6 +54,69 @@ class JogosAdapter: RecyclerView.Adapter<JogosAdapter.JogosViewHolder>() {
                 }
                 else -> {
                     itemView.findViewById<TextView>(R.id.txt_gols_2).setTextColor(Color.rgb(0,240,0))
+                }
+            }
+
+            // tratando os foguinhos
+            when(jogo.time1?.winSequence) {
+                0 -> {
+                    itemView.findViewById<ImageView>(R.id.fire_11).visibility = INVISIBLE
+                    itemView.findViewById<ImageView>(R.id.fire_12).visibility = INVISIBLE
+                    itemView.findViewById<ImageView>(R.id.fire_13).visibility = INVISIBLE
+                }
+                1 -> {
+                    itemView.findViewById<ImageView>(R.id.fire_11).visibility = VISIBLE
+                    itemView.findViewById<ImageView>(R.id.fire_12).visibility = INVISIBLE
+                    itemView.findViewById<ImageView>(R.id.fire_13).visibility = INVISIBLE
+                }
+                2 -> {
+                    itemView.findViewById<ImageView>(R.id.fire_11).visibility = VISIBLE
+                    itemView.findViewById<ImageView>(R.id.fire_12).visibility = VISIBLE
+                    itemView.findViewById<ImageView>(R.id.fire_13).visibility = INVISIBLE
+                }
+                3 -> {
+                    itemView.findViewById<ImageView>(R.id.fire_11).visibility = VISIBLE
+                    itemView.findViewById<ImageView>(R.id.fire_12).visibility = VISIBLE
+                    itemView.findViewById<ImageView>(R.id.fire_13).visibility = VISIBLE
+                }
+                else -> {
+                    itemView.findViewById<ImageView>(R.id.fire_11).visibility = VISIBLE
+                    itemView.findViewById<ImageView>(R.id.fire_11).setColorFilter(Color.RED)
+                    itemView.findViewById<ImageView>(R.id.fire_12).visibility = VISIBLE
+                    itemView.findViewById<ImageView>(R.id.fire_12).setColorFilter(Color.RED)
+                    itemView.findViewById<ImageView>(R.id.fire_13).visibility = VISIBLE
+                    itemView.findViewById<ImageView>(R.id.fire_13).setColorFilter(Color.RED)
+                }
+            }
+
+            when(jogo.time2?.winSequence) {
+                0 -> {
+                    itemView.findViewById<ImageView>(R.id.fire_21).visibility = INVISIBLE
+                    itemView.findViewById<ImageView>(R.id.fire_22).visibility = INVISIBLE
+                    itemView.findViewById<ImageView>(R.id.fire_23).visibility = INVISIBLE
+                }
+                1 -> {
+                    itemView.findViewById<ImageView>(R.id.fire_21).visibility = VISIBLE
+                    itemView.findViewById<ImageView>(R.id.fire_22).visibility = INVISIBLE
+                    itemView.findViewById<ImageView>(R.id.fire_23).visibility = INVISIBLE
+                }
+                2 -> {
+                    itemView.findViewById<ImageView>(R.id.fire_21).visibility = VISIBLE
+                    itemView.findViewById<ImageView>(R.id.fire_22).visibility = VISIBLE
+                    itemView.findViewById<ImageView>(R.id.fire_23).visibility = INVISIBLE
+                }
+                3 -> {
+                    itemView.findViewById<ImageView>(R.id.fire_21).visibility = VISIBLE
+                    itemView.findViewById<ImageView>(R.id.fire_22).visibility = VISIBLE
+                    itemView.findViewById<ImageView>(R.id.fire_23).visibility = VISIBLE
+                }
+                else -> {
+                    itemView.findViewById<ImageView>(R.id.fire_21).visibility = VISIBLE
+                    itemView.findViewById<ImageView>(R.id.fire_21).setColorFilter(Color.RED)
+                    itemView.findViewById<ImageView>(R.id.fire_22).visibility = VISIBLE
+                    itemView.findViewById<ImageView>(R.id.fire_22).setColorFilter(Color.RED)
+                    itemView.findViewById<ImageView>(R.id.fire_23).visibility = VISIBLE
+                    itemView.findViewById<ImageView>(R.id.fire_23).setColorFilter(Color.RED)
                 }
             }
         }
