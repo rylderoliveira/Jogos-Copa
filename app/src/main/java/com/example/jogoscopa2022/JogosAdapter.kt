@@ -27,16 +27,16 @@ class JogosAdapter: RecyclerView.Adapter<JogosAdapter.JogosViewHolder>() {
     inner class JogosViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         fun bind(jogo: Jogo){
             itemView.findViewById<TextView>(R.id.txt_jogo).text = jogo.numeroJogo
-            itemView.findViewById<TextView>(R.id.txt_name_1).text = jogo.nameTime1
-            itemView.findViewById<TextView>(R.id.txt_name_2).text = jogo.nameTime2
+            itemView.findViewById<TextView>(R.id.txt_name_1).text = jogo.time1?.name
+            itemView.findViewById<TextView>(R.id.txt_name_2).text = jogo.time2?.name
             itemView.findViewById<TextView>(R.id.txt_gols_1).text = jogo.golsTime1.toString()
             itemView.findViewById<TextView>(R.id.txt_gols_2).text = jogo.golsTime2.toString()
-            jogo.imageTime1?.let {
+            jogo.time1?.flagId?.let {
                 itemView.findViewById<ImageView>(R.id.image_time_1).setImageResource(
                     it
                 )
             }
-            jogo.imageTime2?.let {
+            jogo.time2?.flagId?.let {
                 itemView.findViewById<ImageView>(R.id.image_time_2).setImageResource(
                     it
                 )
